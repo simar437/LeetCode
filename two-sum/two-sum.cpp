@@ -1,19 +1,15 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& v, int t) {
+    vector<int> twoSum(vector<int>& n, int t) {
         map<int, int> m;
-        for (int x{}; auto& i : v)
+        for (int x{1}; auto& i : n)
         {
-            m[t - i] = x++; 
-        }
-        for (int x{}; auto& i : v)
-        {
-            if (m[i] != 0 && m[i] != x)
+            if (m[i] != 0)
             {
-                return {x, m[i]};
+                return {x - 1, m[i] - 1};
             }
-            x++;
+            m[t - i] = x++;
         }
-        return {};
+        return vector<int>();
     }
 };
