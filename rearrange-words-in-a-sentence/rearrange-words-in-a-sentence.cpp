@@ -5,6 +5,7 @@ public:
             return a.size() < b.size();
         };
         std::multiset<std::string, decltype(compare)> m{compare};
+        word[0] = tolower(word[0]);
         stringstream ss(word);
         while (ss >> word) 
         {
@@ -13,10 +14,7 @@ public:
         word.clear();
         for (auto& i : m)
         {
-            auto t = i;
-            if (isupper(i[0])) 
-                t[0] += 32;
-            word += t + ' ';
+            word += i + ' ';
         }
         word[0] = toupper(word[0]);
         word.pop_back();
