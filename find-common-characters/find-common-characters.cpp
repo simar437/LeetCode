@@ -1,35 +1,21 @@
 class Solution {
 public:
     vector<string> commonChars(vector<string>& words) {
-        vector<map<char, int>> v;
-        for (auto& i : words)
+        sort(words[0].begin(), words[0].end());
+        string s(words[0]);
+        for (int i{1}; i < words.size(); i++)
         {
-            map<char, int> m;
-            for (auto& j : i)
-                m[j]++;
-            v.push_back(m);
+            auto& x = words[i];
+            string t;
+            sort(x.begin(), x.end());
+            set_intersection(s.begin(), s.end(), x.begin(), x.end(), back_inserter(t));
+            if (t == "")
+                return vector<string>();
+            s = t;
         }
-        vector<string> ans;
-        for (auto& [key, val] : v[0])
-        {
-            int m{val};
-            bool b{true};
-            for (int j{1}; j < v.size(); j++)
-            {
-                if (auto x = v[j][key]; x == 0)
-                {
-                    b = false;
-                    break;
-                }
-                else 
-                    m = min(m, x);
-            }
-            if (b)
-            {
-                while (m--)
-                    ans.emplace_back(1, key);
-            }
-        }
-        return ans;
+        vector<string> v;
+        for (auto& i : s)
+            v.emplace_back(1, i);
+        return v;
     }
 };
