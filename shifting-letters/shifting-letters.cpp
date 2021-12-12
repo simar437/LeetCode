@@ -1,9 +1,15 @@
 class Solution {
 public:
     string shiftingLetters(string& s, vector<int>& shifts) {
-        vector<long long> v(shifts.begin(), shifts.end());
-        partial_sum(rbegin(v), rend(v), rbegin(v));
-        for (int i{}; i < shifts.size(); i++)
+        int n = size(shifts);
+        vector<long long> v(n);
+        long long sum{};
+        for (int i = n - 1; i >= 0; i--)
+        {
+            sum += shifts[i];
+            v[i] = sum;
+        }
+        for (int i{}; i < n; i++)
         {
             int temp = v[i] % 26;
             if (static_cast<int>(s[i]) + temp > 'z')
