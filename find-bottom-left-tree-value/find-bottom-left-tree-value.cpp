@@ -10,18 +10,22 @@
  * };
  */
 class Solution {
-    int lastRow{}, ans{};  
-public:
-    int findBottomLeftValue(TreeNode* root, int row = 1) {
+    int lastRow{}, ans{};
+    void helper(TreeNode* root, int row = 1)
+    {
         if (root == nullptr)
-            return 0;
+            return;
+        helper(root->left, row + 1);
         if (row > lastRow)
         {
             lastRow = row;
             ans = root->val;
         }
-        findBottomLeftValue(root->left, row + 1);
-        findBottomLeftValue(root->right, row + 1);
+        helper(root->right, row + 1);
+    }
+public:
+    int findBottomLeftValue(TreeNode* root, int row = 1) {
+        helper(root);
         return ans;
     }
 };
