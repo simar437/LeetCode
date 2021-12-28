@@ -12,13 +12,13 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
         int size{};
-        for (auto temp{head}; temp != nullptr; temp = temp->next, size++);
-        size /= 2;
-        auto temp{head};
-        while (size--)
+        for (auto t{head}; t != nullptr; t = t->next, size++);
+        int mid = size / 2;
+        auto ans{head};
+        while (mid--)
         {
-            temp = temp->next;
+            ans = ans->next;
         }
-        return temp;
+        return ans;
     }
 };
