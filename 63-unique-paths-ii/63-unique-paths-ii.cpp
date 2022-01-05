@@ -1,5 +1,13 @@
 class Solution {
-    map<pair<int, int>, int> m;
+    struct pair_hash {
+    template <typename T1, typename T2>
+    size_t operator() (const pair<T1,T2> &p) const {
+            auto h1 = hash<T1>{}(p.first);
+            auto h2 = hash<T2>{}(p.second);
+            return h1 ^ h2;
+        }
+    };
+    unordered_map<pair<int, int>, int, pair_hash> m;
     int helper(const vector<vector<int>>& grid, int row = 0, int col = 0)
     {
         if (
