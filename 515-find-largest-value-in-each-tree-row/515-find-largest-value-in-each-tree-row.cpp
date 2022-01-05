@@ -11,19 +11,19 @@
  */
 class Solution {
     vector<int> ans;
-    void helper(TreeNode* root, int h = 1)
+    void helper(TreeNode* root, int h = 0)
     {
         if (root == nullptr)
         {
             return;
         }
-        if (h > size(ans))
+        if (h >= size(ans))
         {
             ans.push_back(root->val);
         }
         else
         {
-            ans[h - 1] = max(ans[h - 1], root->val);
+            ans[h] = max(ans[h], root->val);
         }
         helper(root->left, h + 1);
         helper(root->right, h + 1);
