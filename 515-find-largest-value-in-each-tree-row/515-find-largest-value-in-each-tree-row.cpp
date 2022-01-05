@@ -11,7 +11,7 @@
  */
 class Solution {
     vector<int> ans;
-    void helper(const TreeNode* root, int h = 0)
+    void helper(TreeNode* root, int h = 0)
     {
         if (root == nullptr)
         {
@@ -29,7 +29,7 @@ class Solution {
         helper(root->right, h + 1);
     }
 public:
-    const vector<int>& largestValues(const TreeNode* root) {
+    vector<int> largestValues(TreeNode* root) {
         helper(root);
         return ans;
     }
