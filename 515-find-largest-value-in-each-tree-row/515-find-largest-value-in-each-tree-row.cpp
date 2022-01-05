@@ -29,7 +29,7 @@ class Solution {
         helper(root->right, h + 1);
     }
 public:
-    vector<int>& largestValues(const TreeNode* root) {
+    const vector<int>& largestValues(const TreeNode* root) {
         helper(root);
         return ans;
     }
