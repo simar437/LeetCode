@@ -11,7 +11,7 @@
  */
 class Solution {
     vector<int> ans;
-    void helper(TreeNode* root, int h = 0)
+    void helper(const TreeNode* root, int h = 0)
     {
         if (root == nullptr)
         {
@@ -21,15 +21,15 @@ class Solution {
         {
             ans.push_back(root->val);
         }
-        else
+        else if (root->val > ans[h])
         {
-            ans[h] = max(ans[h], root->val);
+            ans[h] = root->val;
         }
         helper(root->left, h + 1);
         helper(root->right, h + 1);
     }
 public:
-    vector<int> largestValues(TreeNode* root) {
+    vector<int>& largestValues(const TreeNode* root) {
         helper(root);
         return ans;
     }
