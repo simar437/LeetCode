@@ -5,7 +5,7 @@ public:
     Solution(const vector<int>& nums) {
         for (int x{}; const auto& i : nums)
         {
-            m.insert(begin(m), {i, x++});
+            m.insert({i, x++});
         }
     }
     
