@@ -5,14 +5,8 @@ public:
         long long ans{}, n{};
         for (const auto& i : s)
         {
-            if (i == '1')
-            {
-                ans += ++n;
-            }
-            else
-            {
-                n = 0;
-            }
+            n = (i == '1') * ++n;
+            ans += n;
         }
         return ans % 1000000007;
     }
