@@ -11,7 +11,7 @@
  */
 class Solution {
     unordered_map<int, int> m;
-    int helper(TreeNode* root)
+    int helper(const TreeNode* root)
     {
         if (root == nullptr)
             return 0;
@@ -20,7 +20,7 @@ class Solution {
         return x;
     }
 public:
-    vector<int> findFrequentTreeSum(TreeNode* root) {
+    vector<int> findFrequentTreeSum(const TreeNode* root) {
         helper(root);
         vector<int> ans;
         int highestFrequency{};
