@@ -1,28 +1,28 @@
 class Solution {
 public:
-    int myAtoi(string s) {
+    int myAtoi(const string& s) {
         long long ans{};
         bool numStarted{}, isNegative{};
-        for (int i{}; i < size(s); i++)
+        for (const auto& i : s)
         {
             if (ans > INT_MAX)
                 break;
             
-            if (!numStarted && s[i] == ' ' );
+            if (!numStarted && i == ' ' );
             
-            else if (!numStarted && s[i] == '-')
+            else if (!numStarted && i == '-')
             {
                 isNegative = true;
                 numStarted = true;
             }
-            else if (!numStarted && s[i] == '+')
+            else if (!numStarted && i == '+')
             {
                 numStarted = true;
             }
-            else if (isdigit(s[i]))
+            else if (isdigit(i))
             {
                 ans *= 10;
-                ans += s[i] - '0';
+                ans += i - '0';
                 numStarted = true;
             }
             else
