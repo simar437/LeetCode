@@ -1,12 +1,14 @@
 class Solution {
 public:
     string& maxValue(string& str, int x) {
-        int n = size(str);
-        if (str.front() != '-')
-        {
-            for (int i{}; i < n; i++)
+        int n = size(str);     
+        bool isNegative = str.front() == '-';
+        for (int i = isNegative; i < n; i++)
             {
-                if (str[i] - '0' < x)
+                if (
+                    (!isNegative && str[i] - '0' < x) || 
+                    (isNegative && str[i] - '0' > x)
+                   )
                 {
                     str.insert(i, to_string(x));
                     break;
@@ -14,20 +16,6 @@ public:
             }
             if (n == size(str))
                 str += to_string(x);
-        }
-        else
-        {
-            for (int i{1}; i < n; i++)
-            {
-                if (str[i] - '0' > x)
-                {
-                    str.insert(i, to_string(x));
-                    break;
-                }
-            }
-            if (n == size(str))
-                str += to_string(x);
-        }
         return str;
     }
 };
