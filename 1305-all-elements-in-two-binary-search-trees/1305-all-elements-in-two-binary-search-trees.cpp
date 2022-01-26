@@ -10,19 +10,20 @@
  * };
  */
 class Solution {
-    multiset<int> m;
-    void helper(const TreeNode* root)
+    vector<int> v;
+    void helper(TreeNode* root)
     {
         if (root == nullptr)
             return;
-        m.insert(root->val);
-        helper(root->right);
+        v.push_back(root->val);
         helper(root->left);
+        helper(root->right);
     }
 public:
-    vector<int> getAllElements(const TreeNode* root1, const TreeNode* root2) {
+    vector<int>& getAllElements(TreeNode* root1, TreeNode* root2) {
         helper(root1);
         helper(root2);
-        return {begin(m), end(m)};
+        sort(begin(v), end(v));
+        return v;
     }
 };
