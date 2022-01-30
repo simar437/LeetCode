@@ -5,7 +5,7 @@ class WordDictionary {
     };
     shared_ptr<trie> words = make_shared<trie>();
     string_view str;
-    bool helper(shared_ptr<trie> node, int index = 0)
+    bool helper(const shared_ptr<trie>& node,const int index = 0)
     {
         if (node == nullptr)
             return false;
