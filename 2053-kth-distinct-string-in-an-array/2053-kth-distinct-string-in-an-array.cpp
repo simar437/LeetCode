@@ -8,9 +8,7 @@ public:
         }
         for (const auto& i : arr)
         {
-            if (m[i] == 1)
-                k--;
-            if (k == 0)
+            if (m[i] == 1 && --k == 0)
                 return i;
         }
         return "";
