@@ -10,7 +10,7 @@ solution's function would need to be invoked with appropriate inputs/test cases 
 - Sometimes, multiple solutions/approaches have been provided with relevant comments in the solution file, 
 these are being continuously updated as and when I find a more optimized solution. Be wary of copying two solutions separated
 by comments simultaneously to run/submit on InterviewBit's online judge. Both shall work individually.
-- I've used C++11 ([list initialization](https://en.cppreference.com/w/cpp/language/list_initialization), 
+- I've used C++ 20 ([list initialization](https://en.cppreference.com/w/cpp/language/list_initialization), 
 [auto](https://en.cppreference.com/w/cpp/language/auto), 
 [emplace_back](http://www.cplusplus.com/reference/vector/vector/emplace_back/), etc) features
 in each and every solution.
