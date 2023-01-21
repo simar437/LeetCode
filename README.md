@@ -1,4 +1,5 @@
 # LeetCode
+<img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXn4o0L4gKBA7ivA8dqmenKQSUKnU4CFg2Rw&usqp=CAU"
 This repository is a collection of my gists (***working*** :white_check_mark: code snippets passing all test cases on the 
 [LeetCode online judge](https://leetcode.com/)) solutions in the absolutely fantastic 
 language, C++.
